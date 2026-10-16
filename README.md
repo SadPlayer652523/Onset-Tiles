@@ -1,2 +1,2 @@
-# Onset Tiles (Name change pending or permanent)
+# Onset Tiles
 An open-source Magic Tiles-style game.

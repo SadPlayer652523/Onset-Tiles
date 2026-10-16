@@ -21,6 +21,8 @@ mono_crash.*.json
 
 # Export outputs
 *.exe
-*.apk
+builds/
 # Uncomment if your project does not version PCK files as runtime dependencies.
 *.pck
+
+godot_super-wakatime/

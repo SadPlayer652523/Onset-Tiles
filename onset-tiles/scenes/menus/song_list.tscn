@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cmc3bukbixxtk"]
+
+[node name="Song List or Maker" type="Node2D" unique_id=1695958406]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1999698634]
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.08235294, 0.5411765, 1, 1)
+
+[node name="Screen 1" type="Node" parent="." unique_id=1190275550]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen 1" unique_id=943192301]
+clip_contents = false
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 720.0
+offset_bottom = 94.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.59607846)
+theme_override_constants/shadow_outline_size = 25
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 60
+text = "Song List"
+scroll_active = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen 1" unique_id=752007674]
+offset_top = 106.0
+offset_right = 720.0
+offset_bottom = 1196.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen 1/ScrollContainer" unique_id=1564126378]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Screen 1" unique_id=232993293]
+clip_contents = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -77.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 44
+text = "+"

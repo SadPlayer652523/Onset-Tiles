@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5d1u3wxqptpy"]
+
+[ext_resource type="PackedScene" uid="uid://c4kgi6ebaf0aj" path="res://scenes/tiles/tile.tscn" id="1_gtu41"]
+
+[node name="PlayArea" type="Node2D" unique_id=479407689]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=681943909]
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.08235294, 0.5411765, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=489094830]
+offset_top = 793.0
+offset_right = 720.0
+offset_bottom = 800.0
+color = Color(1, 1, 1, 0.2901961)
+
+[node name="Tile" parent="." unique_id=35104445 instance=ExtResource("1_gtu41")]

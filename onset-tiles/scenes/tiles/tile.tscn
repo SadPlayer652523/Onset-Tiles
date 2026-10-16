@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c4kgi6ebaf0aj"]
+
+[ext_resource type="Script" uid="uid://s1skvh388n3b" path="res://scripts/tiles/tile.gd" id="1_aqkg6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfkbx"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtu41"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1jbm"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Tile" type="Node2D" unique_id=35104445]
+script = ExtResource("1_aqkg6")
+
+[node name="Button" type="Button" parent="." unique_id=828568344]
+offset_right = 180.0
+offset_bottom = 358.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfkbx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtu41")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1jbm")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

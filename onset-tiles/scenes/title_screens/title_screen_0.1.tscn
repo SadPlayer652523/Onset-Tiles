@@ -4,20 +4,25 @@
 [ext_resource type="Script" uid="uid://cxblbnx2yjbs0" path="res://scripts/title_screen.gd" id="1_so2h6"]
 [ext_resource type="StyleBox" uid="uid://dtromlwpvb7vd" path="res://styles/hover button.tres" id="2_so2h6"]
 
-[node name="Title Screen" type="Node2D" unique_id=1916483466]
+[node name="Title Screen" type="CanvasLayer" unique_id=811192372]
 script = ExtResource("1_so2h6")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1879940153]
-offset_left = -26594.0
-offset_top = -25089.0
-offset_right = 26916.0
-offset_bottom = 25498.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1867562899]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.08235294, 0.5411765, 1, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=919655797]
-offset_top = 136.0
-offset_right = 720.0
-offset_bottom = 364.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 124.0
+offset_bottom = -861.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0.7921569, 0.23529412, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85882354)
 theme_override_constants/shadow_outline_size = 25
@@ -31,10 +36,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=48802012]
-offset_left = 227.0
-offset_top = 418.0
-offset_right = 476.51727
-offset_bottom = 552.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -162.0
+offset_right = 126.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = ExtResource("1_4wesk")

@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Onset Tiles"
-config/version="v0.03"
-run/main_scene="uid://cvngbc7rlmo1d"
+config/version="v0.035"
+run/main_scene="uid://cmc3bukbixxtk"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

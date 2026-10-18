@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @export var tile_scene: PackedScene
 
+var current_song_directory = "res://songs/Test"
+
 var chart = []
 var next_tile = 0
 var song_time = 0.0
@@ -16,6 +18,7 @@ func start_chart(directory: String) -> void:
 	playing = true
 
 func _ready() -> void:
+	Global.song_settings = Global.load_song_settings(current_song_directory)
 	start_chart("res://songs/Test")
 
 func _process(delta: float) -> void:
@@ -38,3 +41,6 @@ func spawn_tiles(note: Dictionary) -> void:
 	add_child(tile)
 	
 	tile.position = Vector2(note["lane"] * 180, -100)
+
+func _on_reset_button_pressed() -> void:
+	get_tree().reload_current_scene()

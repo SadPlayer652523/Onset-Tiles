@@ -1,6 +1,6 @@
 extends Node
 
-const default_speed = 800
+var song_settings: Dictionary
 
 func _ready() -> void:
 	pass
@@ -24,7 +24,7 @@ func load_song_settings(directory: String) -> Dictionary:
 	return {}
 	
 func load_lrc(directory: String):
-	var path = directory.path_join("lanes.txt")
+	var path = directory.path_join("lanes.lrc")
 	var tiles = []
 	
 	if !FileAccess.file_exists(path):

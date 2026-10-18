@@ -15,3 +15,6 @@ func _on_new_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	screen_canvas.offset.x = screens[0]
+
+func _on_next_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/play_area.tscn")

@@ -243,5 +243,23 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 50
 text = "<"
 
+[node name="Next Button" type="Button" parent="CanvasLayer/Screen 2" unique_id=552039319]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -122.0
+offset_right = -31.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 67
+text = ">"
+
 [connection signal="pressed" from="CanvasLayer/Screen 1/New Button" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Screen 2/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Screen 2/Next Button" to="." method="_on_next_button_pressed"]

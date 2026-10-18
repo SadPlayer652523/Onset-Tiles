@@ -24,7 +24,7 @@ func load_song_settings(directory: String) -> Dictionary:
 	return {}
 	
 func load_lrc(directory: String):
-	var path = directory.path_join("lanes.lrc")
+	var path = directory.path_join("lanes.txt")
 	var tiles = []
 	
 	if !FileAccess.file_exists(path):

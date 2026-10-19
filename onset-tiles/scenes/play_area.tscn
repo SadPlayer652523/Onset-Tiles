@@ -37,4 +37,6 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 34
 text = "R"
 
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1299768382]
+
 [connection signal="pressed" from="Reset Button" to="." method="_on_reset_button_pressed"]

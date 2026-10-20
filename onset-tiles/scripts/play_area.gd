@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @export var tile_scene: PackedScene
 
-var current_song_directory = "res://songs/Test"
 @onready var audio_player: AudioStreamPlayer = $Audio
 
 var chart = []
@@ -22,15 +21,15 @@ func play_song(directory: String) -> void:
 func start_chart(directory: String) -> void:
 	chart = Global.load_lrc(directory)
 	chart.sort_custom(func(a, b): return a["time"] < b["time"])
-	play_song(current_song_directory)
+	play_song(directory)
 	
 	next_tile = 0
 	song_time = 0
 	playing = true
 
 func _ready() -> void:
-	Global.song_settings = Global.load_song_settings(current_song_directory)
-	start_chart(current_song_directory)
+	Global.song_settings = Global.load_song_settings(Global.current_song_directory)
+	start_chart(Global.current_song_directory)
 
 func _process(delta: float) -> void:
 	if !playing:

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://clundlawq4yl7"]
+
+[ext_resource type="Script" uid="uid://bpmlovd6rr347" path="res://scripts/chart_button.gd" id="1_bdka7"]
+
+[node name="Chart Button" type="Button" unique_id=1565554221]
+custom_minimum_size = Vector2(668.72, 100)
+custom_maximum_size = Vector2(668.72, 100)
+theme_override_colors/font_outline_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 32
+text = "Placeholder Text"
+script = ExtResource("1_bdka7")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

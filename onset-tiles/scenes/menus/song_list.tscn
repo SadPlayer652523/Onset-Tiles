@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cmc3bukbixxtk"]
 
 [ext_resource type="Script" uid="uid://bo24p2kn6n1uh" path="res://scripts/song_list.gd" id="1_6vupu"]
+[ext_resource type="PackedScene" uid="uid://clundlawq4yl7" path="res://scenes/menus/chart_button.tscn" id="2_ms06v"]
 
 [node name="Song List or Maker" type="CanvasLayer" unique_id=1036417225]
 script = ExtResource("1_6vupu")
+chart_button_scene = ExtResource("2_ms06v")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1999698634]
 anchors_preset = 15
@@ -13,9 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.5411765, 1, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=908210790]
+[node name="Screens" type="CanvasLayer" parent="." unique_id=908210790]
 
-[node name="Screen 1" type="Control" parent="CanvasLayer" unique_id=204298430]
+[node name="Screen 1" type="Control" parent="Screens" unique_id=204298430]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Song List" type="RichTextLabel" parent="CanvasLayer/Screen 1" unique_id=943192301]
+[node name="Song List" type="RichTextLabel" parent="Screens/Screen 1" unique_id=943192301]
 clip_contents = false
 layout_mode = 0
 offset_left = 30.0
@@ -39,7 +41,7 @@ theme_override_font_sizes/normal_font_size = 60
 text = "Song List"
 scroll_active = false
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Screen 1" unique_id=752007674]
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/Screen 1" unique_id=752007674]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,144 +54,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Screen 1/ScrollContainer" unique_id=1564126378]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Screen 1/ScrollContainer" unique_id=1564126378]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1666437576]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button2" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1659033711]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button3" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1327977053]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button4" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=152902299]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button5" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1722560799]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button6" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=463499234]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button7" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1238519173]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button8" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1065886118]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button9" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=527687015]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button10" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1413088790]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button11" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1498509407]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button12" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1059217996]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button13" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=8133703]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button14" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1483468250]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button15" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1685095414]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button16" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=211321191]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button17" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1311771687]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button18" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=742245824]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button19" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1358742513]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button20" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=572385085]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button21" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1045882536]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Button22" type="Button" parent="CanvasLayer/Screen 1/ScrollContainer/VBoxContainer" unique_id=1960843267]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(668.72, -1)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="New Button" type="Button" parent="CanvasLayer/Screen 1" unique_id=232993293]
+[node name="New Button" type="Button" parent="Screens/Screen 1" unique_id=232993293]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 3
@@ -206,7 +76,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 67
 text = "+"
 
-[node name="Screen 2" type="Control" parent="CanvasLayer" unique_id=42845561]
+[node name="Screen 2" type="Control" parent="Screens" unique_id=42845561]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,7 +86,7 @@ offset_right = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="New Song" type="RichTextLabel" parent="CanvasLayer/Screen 2" unique_id=88470509]
+[node name="New Song" type="RichTextLabel" parent="Screens/Screen 2" unique_id=88470509]
 clip_contents = false
 layout_mode = 0
 offset_left = 391.0
@@ -233,7 +103,7 @@ text = "New Song"
 scroll_active = false
 horizontal_alignment = 2
 
-[node name="Back Button" type="Button" parent="CanvasLayer/Screen 2" unique_id=1344193919]
+[node name="Back Button" type="Button" parent="Screens/Screen 2" unique_id=1344193919]
 clip_contents = true
 layout_mode = 1
 offset_left = 28.0
@@ -243,7 +113,7 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 50
 text = "<"
 
-[node name="Next Button" type="Button" parent="CanvasLayer/Screen 2" unique_id=552039319]
+[node name="Next Button" type="Button" parent="Screens/Screen 2" unique_id=552039319]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 3
@@ -260,6 +130,6 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 67
 text = ">"
 
-[connection signal="pressed" from="CanvasLayer/Screen 1/New Button" to="." method="_on_new_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Screen 2/Back Button" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Screen 2/Next Button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Screens/Screen 1/New Button" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="Screens/Screen 2/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Screens/Screen 2/Next Button" to="." method="_on_next_button_pressed"]

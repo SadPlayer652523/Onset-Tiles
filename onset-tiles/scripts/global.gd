@@ -1,6 +1,7 @@
 extends Node
 
 var song_settings: Dictionary
+var current_song_directory = "res://songs/Test"
 
 func _ready() -> void:
 	pass

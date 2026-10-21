@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d17fs825r32wn"]
+
+[ext_resource type="Script" uid="uid://b5wvnjeu0oqyq" path="res://scripts/game_crash.gd" id="1_i5q4q"]
+
+[node name="GameCrash" type="CanvasLayer" unique_id=1491377352]
+script = ExtResource("1_i5q4q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1830802754]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0.5411765, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1535974874]
+offset_left = 24.0
+offset_right = 696.0
+offset_bottom = 1280.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Error: Placeholder
+Exception: Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1

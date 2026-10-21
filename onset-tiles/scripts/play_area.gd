@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var tile_scene: PackedScene
 
 @onready var audio_player: AudioStreamPlayer = $Audio
+@onready var tiles_scene: CanvasLayer = $Tiles
 
 var chart = []
 var next_tile = 0
@@ -11,12 +12,14 @@ var playing = false
 
 func play_song(directory: String) -> void:
 	var audio_path = directory + "/song.mp3"
-	var audio: AudioStream = load(audio_path) as AudioStream
+	var audio: AudioStream = AudioStreamMP3.load_from_file(audio_path)
 	if audio:
 		audio_player.stream = audio
 		audio_player.play()
 	else:
-		push_error("Failed to load song: " + audio_path)
+		print("Failed to load song: " + audio_path)
+		Global.global_error = "Error: Failed to load song\nException: " + audio_path
+		get_tree().change_scene_to_file("res://scenes/game_crash.tscn")
 
 func start_chart(directory: String) -> void:
 	chart = Global.load_lrc(directory)
@@ -48,9 +51,9 @@ func _process(delta: float) -> void:
 			
 func spawn_tiles(note: Dictionary) -> void:
 	var tile = tile_scene.instantiate()
-	add_child(tile)
+	tiles_scene.add_child(tile)
 	
-	tile.position = Vector2(note["lane"] * 180, -100)
+	tile.position = Vector2(note["lane"] * 180, -448)
 
 func _on_reset_button_pressed() -> void:
 	get_tree().reload_current_scene()

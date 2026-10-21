@@ -1,10 +1,11 @@
 extends Node
 
 var song_settings: Dictionary
-var current_song_directory = "res://songs/Test"
+var current_song_directory: String
+var global_error: String
 
 func _ready() -> void:
-	pass
+	create_song_folder()
 
 func _process(delta: float) -> void:
 	pass
@@ -52,3 +53,16 @@ func load_lrc(directory: String):
 	
 	file.close()
 	return tiles
+	
+func create_song_folder():
+	if OS.get_name() == "Android":
+		var path = "storage/emulated/0/Android/data/com.sadplayer652523.onset/files/songs"
+		var error = DirAccess.make_dir_recursive_absolute(path)
+		
+		if error == OK or error == ERR_ALREADY_EXISTS:
+			print("Song folder created or already exists: " + path)
+		else:
+			print("Song folder not created: " + path + " | error: " + error)
+			global_error = "Error: " + error + "\nException: " + path
+			get_tree().change_scene_to_file("res://scenes/game_crash.tscn")
+			

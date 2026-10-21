@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4kgi6ebaf0aj" path="res://scenes/tiles/tile.tscn" id="1_gtu41"]
 [ext_resource type="Script" uid="uid://b7algfh07e5so" path="res://scripts/play_area.gd" id="1_i1jbm"]
 
-[node name="PlayArea" type="CanvasLayer" unique_id=1560708342]
+[node name="Play Area" type="CanvasLayer" unique_id=1560708342]
 script = ExtResource("1_i1jbm")
 tile_scene = ExtResource("1_gtu41")
 
@@ -22,12 +22,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = 335.5
+offset_top = 311.5
 offset_right = 360.0
-offset_bottom = 342.5
+offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2901961)
+
+[node name="Tiles" type="CanvasLayer" parent="." unique_id=180247128]
 
 [node name="Reset Button" type="Button" parent="." unique_id=204099613]
 offset_left = 28.0

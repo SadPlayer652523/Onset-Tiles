@@ -6,6 +6,8 @@ extends CanvasLayer
 @export var chart_button_scene: PackedScene
 
 const screen_coords = [0, -720]
+const songs_parent_folder = "storage/emulated/0/Android/data/com.sadplayer652523.onset/files/songs/"
+const pc_song_folder = "res://songs/"
 
 func _ready() -> void:
 	load_song_names()
@@ -13,8 +15,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func get_songs_path() -> String:
+	if OS.get_name() == "Android":
+		return songs_parent_folder
+	return pc_song_folder
+	
 func load_song_names():
-	var song_dir = DirAccess.open("res://songs")
+	var song_dir = DirAccess.open(get_songs_path())
 	if song_dir == null:
 		return
 		
@@ -22,7 +29,7 @@ func load_song_names():
 	var folder_name = song_dir.get_next()
 	
 	while folder_name != "":
-		var full_path = "res://songs/" + folder_name
+		var full_path = get_songs_path() + folder_name
 		var settings_path = full_path + "/settings.json"
 		
 		if FileAccess.file_exists(settings_path):

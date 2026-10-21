@@ -9,6 +9,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += speed * (Global.song_settings["bpm"] / 100.0) * delta
+	if position.y > 951.0:
+		button.disabled = true
 
 func _on_button_pressed() -> void:
+	Global.score += 1
 	button.hide()

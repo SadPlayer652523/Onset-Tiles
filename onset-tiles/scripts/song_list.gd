@@ -10,6 +10,7 @@ const songs_parent_folder = "storage/emulated/0/Android/data/com.sadplayer652523
 const pc_song_folder = "res://songs/"
 
 func _ready() -> void:
+	Global.score = 0
 	load_song_names()
 
 func _process(delta: float) -> void:
@@ -49,10 +50,14 @@ func load_song_names():
 	song_dir.list_dir_end()
 
 func _on_new_button_pressed() -> void:
-	screens.offset.x = screen_coords[1]
+	slide_screen(screen_coords[1])
 
 func _on_back_button_pressed() -> void:
-	screens.offset.x = screen_coords[0]
+	slide_screen(screen_coords[0])
 
 func _on_next_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/play_area.tscn")
+	
+func slide_screen(screen):
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(screens, "offset", Vector2(screen, 0), 0.2)

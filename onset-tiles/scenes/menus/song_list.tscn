@@ -130,6 +130,126 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 67
 text = ">"
 
+[node name="Song Text Box" type="TextEdit" parent="Screens/Screen 2" unique_id=897918773]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -201.0
+offset_right = 272.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+placeholder_text = "New Song"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Song Name label" type="RichTextLabel" parent="Screens/Screen 2" unique_id=347032921]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -227.0
+offset_right = -81.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+text = "Song Name"
+scroll_active = false
+
+[node name="BPM Input Box" type="TextEdit" parent="Screens/Screen 2" unique_id=1990872940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -73.0
+offset_right = -109.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+placeholder_text = "120"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="BPM Label" type="RichTextLabel" parent="Screens/Screen 2" unique_id=366557746]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -99.0
+offset_right = -200.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+text = "BPM"
+scroll_active = false
+
+[node name="Artist Text Box" type="TextEdit" parent="Screens/Screen 2" unique_id=398593924]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -73.0
+offset_right = 272.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Artist"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Artist Label" type="RichTextLabel" parent="Screens/Screen 2" unique_id=1280602386]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -99.0
+offset_right = 59.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+text = "Artist Name"
+scroll_active = false
+
 [connection signal="pressed" from="Screens/Screen 1/New Button" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="Screens/Screen 2/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Screens/Screen 2/Next Button" to="." method="_on_next_button_pressed"]

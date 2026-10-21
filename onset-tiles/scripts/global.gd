@@ -3,6 +3,7 @@ extends Node
 var song_settings: Dictionary
 var current_song_directory: String
 var global_error: String
+var score: int
 
 func _ready() -> void:
 	create_song_folder()

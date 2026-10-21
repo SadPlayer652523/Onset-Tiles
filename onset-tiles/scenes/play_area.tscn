@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://b7algfh07e5so" path="res://scripts/play_area.gd" id="1_i1jbm"]
 
 [node name="Play Area" type="CanvasLayer" unique_id=1560708342]
+layer = 2
 script = ExtResource("1_i1jbm")
 tile_scene = ExtResource("1_gtu41")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=681943909]
+[node name="Node for Layering" type="CanvasLayer" parent="." unique_id=933013633]
+
+[node name="ColorRect" type="ColorRect" parent="Node for Layering" unique_id=681943909]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.5411765, 1, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=489094830]
+[node name="ColorRect2" type="ColorRect" parent="Node for Layering" unique_id=489094830]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,6 +31,24 @@ offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2901961)
+
+[node name="Score Text" type="RichTextLabel" parent="." unique_id=785852983]
+clip_contents = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -255.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 113.0
+grow_horizontal = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 40
+text = "Score: 0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Tiles" type="CanvasLayer" parent="." unique_id=180247128]
 

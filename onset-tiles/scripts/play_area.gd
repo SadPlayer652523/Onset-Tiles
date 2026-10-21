@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var tile_scene: PackedScene
+@onready var score_text: RichTextLabel = $"Score Text"
 
 @onready var audio_player: AudioStreamPlayer = $Audio
 @onready var tiles_scene: CanvasLayer = $Tiles
@@ -39,6 +40,8 @@ func _process(delta: float) -> void:
 		return
 		
 	song_time += delta
+	
+	score_text.text = "Score: " + str(Global.score)
 	
 	while next_tile < chart.size():
 		var tile: Dictionary = chart[next_tile]

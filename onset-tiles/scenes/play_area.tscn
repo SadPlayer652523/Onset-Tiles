@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://c4kgi6ebaf0aj" path="res://scenes/tiles/tile.tscn" id="1_gtu41"]
 [ext_resource type="Script" uid="uid://b7algfh07e5so" path="res://scripts/play_area.gd" id="1_i1jbm"]
+[ext_resource type="Texture2D" uid="uid://bd61m821f61m6" path="res://assets/backgrounds/play_area_background.png" id="3_hk8fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
-size = Vector2(720, 7)
+size = Vector2(720, 6)
 
 [node name="Play Area" type="CanvasLayer" unique_id=1560708342]
 layer = 2
@@ -13,13 +14,15 @@ tile_scene = ExtResource("1_gtu41")
 
 [node name="Node for Layering" type="CanvasLayer" parent="." unique_id=933013633]
 
-[node name="Background" type="ColorRect" parent="Node for Layering" unique_id=681943909]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Background" type="TextureRect" parent="Node for Layering" unique_id=1275861357]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 360.0
+offset_bottom = 1600.0
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.08235294, 0.5411765, 1, 1)
+texture = ExtResource("3_hk8fp")
 
 [node name="Hit Line" type="ColorRect" parent="Node for Layering" unique_id=489094830]
 anchors_preset = 8
@@ -28,29 +31,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.0
-offset_top = 311.5
+offset_top = 313.0
 offset_right = 360.0
 offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.2901961)
+color = Color(1, 1, 1, 0.5019608)
 
 [node name="Hit Line Area2D" type="Area2D" parent="Node for Layering/Hit Line" unique_id=66459944]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node for Layering/Hit Line/Hit Line Area2D" unique_id=1782599647]
-position = Vector2(360, 3.5)
+position = Vector2(360, 3)
 shape = SubResource("RectangleShape2D_lfkbx")
 
 [node name="Score Text" type="RichTextLabel" parent="." unique_id=785852983]
 clip_contents = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -255.0
-offset_top = 15.0
-offset_right = 10.0
-offset_bottom = 113.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.5
+offset_top = 33.0
+offset_right = 132.5
+offset_bottom = 96.0
+grow_horizontal = 2
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 40

@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	if !playing:
 		return
 		
-	song_time += delta
+	song_time = audio_player.get_playback_position()
 	score_text.text = "Score: " + str(Global.score)
 	
 	while next_tile < chart.size():

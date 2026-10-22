@@ -2,12 +2,14 @@ extends CanvasLayer
 
 @onready var screens: CanvasLayer = $Screens
 @onready var song_list: VBoxContainer = $"Screens/Screen 1/ScrollContainer/VBoxContainer"
+@onready var backgrounds: CanvasLayer = $Backgrounds
 
 @export var chart_button_scene: PackedScene
 
-const screen_coords = [0, -720]
+const screen_coords = [720, 0, -720]
 const songs_parent_folder = "storage/emulated/0/Android/data/com.sadplayer652523.onset/files/songs/"
 const pc_song_folder = "res://songs/"
+const play_area_scene = preload("res://scenes/play_area.tscn")
 
 func _ready() -> void:
 	Global.score = 0
@@ -44,16 +46,17 @@ func load_song_names():
 				var button = chart_button_scene.instantiate()
 				button.text = str(settings.get("title", folder_name))
 				button.chart_path = full_path
+				button.play.connect(transition_to_play_area)
 				song_list.add_child(button)
 				
 		folder_name = song_dir.get_next()
 	song_dir.list_dir_end()
 
 func _on_new_button_pressed() -> void:
-	slide_screen(screen_coords[1])
+	slide_screen(screen_coords[2])
 
 func _on_back_button_pressed() -> void:
-	slide_screen(screen_coords[0])
+	slide_screen(screen_coords[1])
 
 func _on_next_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/play_area.tscn")
@@ -61,3 +64,12 @@ func _on_next_button_pressed() -> void:
 func slide_screen(screen):
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(screens, "offset", Vector2(screen, 0), 0.2)
+	
+func transition_to_play_area():
+	slide_screen(screen_coords[0])
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(backgrounds, "offset", Vector2(screen_coords[0], 0), 0.2)
+	await get_tree().create_timer(0.3).timeout
+	var play_area = play_area_scene.instantiate()
+	get_tree().root.add_child(play_area)
+	queue_free()

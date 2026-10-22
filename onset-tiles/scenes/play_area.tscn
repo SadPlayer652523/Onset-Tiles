@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c4kgi6ebaf0aj" path="res://scenes/tiles/tile.tscn" id="1_gtu41"]
 [ext_resource type="Script" uid="uid://b7algfh07e5so" path="res://scripts/play_area.gd" id="1_i1jbm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(720, 7)
+
 [node name="Play Area" type="CanvasLayer" unique_id=1560708342]
 layer = 2
 script = ExtResource("1_i1jbm")
@@ -10,7 +13,7 @@ tile_scene = ExtResource("1_gtu41")
 
 [node name="Node for Layering" type="CanvasLayer" parent="." unique_id=933013633]
 
-[node name="ColorRect" type="ColorRect" parent="Node for Layering" unique_id=681943909]
+[node name="Background" type="ColorRect" parent="Node for Layering" unique_id=681943909]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.5411765, 1, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Node for Layering" unique_id=489094830]
+[node name="Hit Line" type="ColorRect" parent="Node for Layering" unique_id=489094830]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,6 +34,12 @@ offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2901961)
+
+[node name="Hit Line Area2D" type="Area2D" parent="Node for Layering/Hit Line" unique_id=66459944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node for Layering/Hit Line/Hit Line Area2D" unique_id=1782599647]
+position = Vector2(360, 3.5)
+shape = SubResource("RectangleShape2D_lfkbx")
 
 [node name="Score Text" type="RichTextLabel" parent="." unique_id=785852983]
 clip_contents = false

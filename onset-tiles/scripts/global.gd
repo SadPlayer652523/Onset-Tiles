@@ -1,5 +1,7 @@
 extends Node
 
+var hit_line_position_y: float
+
 var song_settings: Dictionary
 var current_song_directory: String
 var global_error: String

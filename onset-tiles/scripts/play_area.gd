@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 @export var tile_scene: PackedScene
-@onready var score_text: RichTextLabel = $"Score Text"
 
+@onready var score_text: RichTextLabel = $"Score Text"
+@onready var hit_line: ColorRect = $"Node for Layering/Hit Line"
 @onready var audio_player: AudioStreamPlayer = $Audio
 @onready var tiles_scene: CanvasLayer = $Tiles
+@onready var hit_line_collision: Area2D = $"Node for Layering/Hit Line/Area2D"
 
 var chart = []
 var next_tile = 0
@@ -26,12 +28,12 @@ func start_chart(directory: String) -> void:
 	chart = Global.load_lrc(directory)
 	chart.sort_custom(func(a, b): return a["time"] < b["time"])
 	play_song(directory)
-	
 	next_tile = 0
 	song_time = 0
 	playing = true
 
 func _ready() -> void:
+	Global.hit_line_position_y = hit_line.position.y
 	Global.song_settings = Global.load_song_settings(Global.current_song_directory)
 	start_chart(Global.current_song_directory)
 
@@ -40,7 +42,6 @@ func _process(delta: float) -> void:
 		return
 		
 	song_time += delta
-	
 	score_text.text = "Score: " + str(Global.score)
 	
 	while next_tile < chart.size():
@@ -59,4 +60,5 @@ func spawn_tiles(note: Dictionary) -> void:
 	tile.position = Vector2(note["lane"] * 180, -448)
 
 func _on_reset_button_pressed() -> void:
+	Global.score = 0
 	get_tree().reload_current_scene()

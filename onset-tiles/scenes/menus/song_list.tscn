@@ -31,6 +31,18 @@ offset_bottom = 1600.0
 grow_horizontal = 2
 texture = ExtResource("3_yq1u3")
 
+[node name="Reset Button" type="Button" parent="Backgrounds/Background" unique_id=361089548]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+anchor_right = -1.0
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 105.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 34
+text = "R"
+
 [node name="Score Text" type="RichTextLabel" parent="Backgrounds/Background" unique_id=1514475182]
 clip_contents = false
 layout_mode = 1
@@ -50,29 +62,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Reset Button" type="Button" parent="Backgrounds/Background" unique_id=361089548]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0
-anchor_right = -1.0
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 105.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 34
-text = "R"
-
-[node name="Hit Line" type="ColorRect" parent="Backgrounds/Background" unique_id=513270749]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.5
-anchor_top = 0.40100002
-anchor_right = -0.5
-anchor_bottom = 0.40100002
-offset_left = -360.0
-offset_top = 311.39996
-offset_right = 359.99994
-offset_bottom = 316.89996
+[node name="Hit Line" type="ColorRect" parent="Backgrounds" unique_id=513270749]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1080.0
+offset_top = 313.0
+offset_right = -360.0
+offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.5019608)

@@ -61,4 +61,5 @@ func spawn_tiles(note: Dictionary) -> void:
 
 func _on_reset_button_pressed() -> void:
 	Global.score = 0
-	get_tree().reload_current_scene()
+	queue_free()
+	get_tree().change_scene_to_file("res://scenes/play_area.tscn")

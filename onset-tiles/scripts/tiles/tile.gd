@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if is_instance_valid(button):
+	if is_instance_valid(button) and !Global.paused:
 		position.y += speed * (Global.song_settings["bpm"] / 100.0) * delta
 		if position.y > Global.hit_line_position_y:
 			button.disabled = true

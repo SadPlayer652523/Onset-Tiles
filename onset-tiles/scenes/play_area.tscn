@@ -12,9 +12,52 @@ layer = 2
 script = ExtResource("1_i1jbm")
 tile_scene = ExtResource("1_gtu41")
 
-[node name="Node for Layering" type="CanvasLayer" parent="." unique_id=933013633]
+[node name="Pause Screen" type="CanvasLayer" parent="." unique_id=589062735]
+layer = 999
+visible = false
 
-[node name="Background" type="TextureRect" parent="Node for Layering" unique_id=1275861357]
+[node name="Background" type="ColorRect" parent="Pause Screen" unique_id=1849548512]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6156863)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Screen" unique_id=365781086]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -114.5
+offset_right = 90.0
+offset_bottom = -59.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Resume Button" type="Button" parent="Pause Screen/VBoxContainer" unique_id=797255418]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Resume"
+
+[node name="Restart Button" type="Button" parent="Pause Screen/VBoxContainer" unique_id=1792089747]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Restart"
+
+[node name="Quit Button" type="Button" parent="Pause Screen/VBoxContainer" unique_id=1544512394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Quit"
+
+[node name="Background Layer" type="CanvasLayer" parent="." unique_id=933013633]
+layer = 5
+
+[node name="Background" type="TextureRect" parent="Background Layer" unique_id=1275861357]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -24,7 +67,7 @@ offset_bottom = 1600.0
 grow_horizontal = 2
 texture = ExtResource("3_hk8fp")
 
-[node name="Hit Line" type="ColorRect" parent="Node for Layering" unique_id=489094830]
+[node name="Hit Line" type="ColorRect" parent="Background Layer" unique_id=489094830]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,13 +81,29 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.5019608)
 
-[node name="Hit Line Area2D" type="Area2D" parent="Node for Layering/Hit Line" unique_id=66459944]
+[node name="Hit Line Area2D" type="Area2D" parent="Background Layer/Hit Line" unique_id=66459944]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node for Layering/Hit Line/Hit Line Area2D" unique_id=1782599647]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Layer/Hit Line/Hit Line Area2D" unique_id=1782599647]
 position = Vector2(360, 3)
 shape = SubResource("RectangleShape2D_lfkbx")
 
-[node name="Score Text" type="RichTextLabel" parent="." unique_id=785852983]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1923477293]
+layer = 6
+
+[node name="Pause Button" type="Button" parent="UI" unique_id=204099613]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 28.0
+offset_right = -28.0
+offset_bottom = 105.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 34
+text = "l l"
+
+[node name="Score Text" type="RichTextLabel" parent="UI" unique_id=785852983]
+unique_name_in_owner = true
 clip_contents = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -62,16 +121,12 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tiles" type="CanvasLayer" parent="." unique_id=180247128]
-
-[node name="Reset Button" type="Button" parent="." unique_id=204099613]
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 105.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 34
-text = "R"
+[node name="Tiles Layer" type="CanvasLayer" parent="." unique_id=180247128]
+layer = 5
 
 [node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1299768382]
 
-[connection signal="pressed" from="Reset Button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Pause Screen/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Pause Screen/VBoxContainer/Restart Button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Pause Screen/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/Pause Button" to="." method="_on_pause_button_pressed"]

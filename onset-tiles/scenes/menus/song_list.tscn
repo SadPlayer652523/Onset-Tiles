@@ -5,9 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://bd61m821f61m6" path="res://assets/backgrounds/play_area_background.png" id="3_65mn5"]
 [ext_resource type="Texture2D" uid="uid://cpdjroxk2bu43" path="res://assets/backgrounds/background.png" id="3_yq1u3"]
 
-[node name="Song List or Maker" type="CanvasLayer" unique_id=1036417225]
+[node name="Song List" type="CanvasLayer" unique_id=1036417225]
 script = ExtResource("1_6vupu")
 chart_button_scene = ExtResource("2_ms06v")
+
+[node name="Import Dialog" type="FileDialog" parent="." unique_id=1459186843]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
 
 [node name="Backgrounds" type="CanvasLayer" parent="." unique_id=320259841]
 
@@ -21,37 +25,15 @@ offset_bottom = 1600.0
 grow_horizontal = 2
 texture = ExtResource("3_65mn5")
 
-[node name="Background" type="TextureRect" parent="Backgrounds" unique_id=1871645118]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -360.0
-offset_right = 360.0
-offset_bottom = 1600.0
-grow_horizontal = 2
-texture = ExtResource("3_yq1u3")
-
-[node name="Reset Button" type="Button" parent="Backgrounds/Background" unique_id=361089548]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0
-anchor_right = -1.0
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 105.0
-offset_bottom = 105.0
-theme_override_font_sizes/font_size = 34
-text = "R"
-
-[node name="Score Text" type="RichTextLabel" parent="Backgrounds/Background" unique_id=1514475182]
+[node name="Fake Score Text" type="RichTextLabel" parent="Backgrounds/Play Area Background" unique_id=1514475182]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -852.5
+offset_left = -132.5
 offset_top = 33.0
-offset_right = -587.5
+offset_right = 132.5
 offset_bottom = 96.0
 grow_horizontal = 2
 theme_override_constants/shadow_offset_y = 0
@@ -62,7 +44,20 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hit Line" type="ColorRect" parent="Backgrounds" unique_id=513270749]
+[node name="Fake Pause Button" type="Button" parent="Backgrounds/Play Area Background" unique_id=361089548]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 28.0
+offset_right = -28.0
+offset_bottom = 105.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 34
+text = "l l"
+
+[node name="Fake Hit Line" type="ColorRect" parent="Backgrounds" unique_id=513270749]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -75,6 +70,16 @@ offset_bottom = 318.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.5019608)
+
+[node name="Background" type="TextureRect" parent="Backgrounds" unique_id=1871645118]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_right = 360.0
+offset_bottom = 1600.0
+grow_horizontal = 2
+texture = ExtResource("3_yq1u3")
 
 [node name="Screens" type="CanvasLayer" parent="." unique_id=908210790]
 
@@ -189,6 +194,7 @@ offset_bottom = -22.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 67
+disabled = true
 text = ">"
 
 [node name="Song Text Box" type="TextEdit" parent="Screens/Screen 2" unique_id=897918773]
@@ -207,6 +213,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 placeholder_text = "New Song"
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -247,6 +254,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 placeholder_text = "120"
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -287,6 +295,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 placeholder_text = "Artist"
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -311,6 +320,67 @@ theme_override_font_sizes/normal_font_size = 24
 text = "Artist Name"
 scroll_active = false
 
+[node name="Coming Soon Label" type="RichTextLabel" parent="Screens/Screen 2" unique_id=279302917]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -8.0
+offset_right = 137.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 22
+text = "Editor Coming Soon"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="RichTextLabel" parent="Screens/Screen 2" unique_id=1895888453]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 73.0
+offset_right = 46.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/normal_font_size = 55
+text = "OR"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Import Button" type="Button" parent="Screens/Screen 2" unique_id=1043381498]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = 209.0
+offset_right = 92.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 26
+text = "Import Song"
+
+[connection signal="dir_selected" from="Import Dialog" to="." method="_on_folder_selected"]
 [connection signal="pressed" from="Screens/Screen 1/New Button" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="Screens/Screen 2/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Screens/Screen 2/Next Button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Screens/Screen 2/Import Button" to="." method="_on_import_button_pressed"]

@@ -1,11 +1,14 @@
 extends Node
 
+const song_path = "/storage/emulated/0/Android/data/com.sadplayer652523.onset/files/songs/"
+
 var hit_line_position_y: float
 
 var song_settings: Dictionary
 var current_song_directory: String
 var global_error: String
 var score: int
+var paused: bool
 
 func _ready() -> void:
 	create_song_folder()
@@ -59,13 +62,16 @@ func load_lrc(directory: String):
 	
 func create_song_folder():
 	if OS.get_name() == "Android":
-		var path = "storage/emulated/0/Android/data/com.sadplayer652523.onset/files/songs"
-		var error = DirAccess.make_dir_recursive_absolute(path)
+		var permissions = OS.get_granted_permissions()
+		var error = DirAccess.make_dir_recursive_absolute(song_path)
 		
+		if !"android.permission.READ_EXTERNAL_STORAGE" in permissions and !"android.permission.READ_MEDIA_AUDIO" in permissions:
+			OS.request_permissions()
+			
 		if error == OK or error == ERR_ALREADY_EXISTS:
-			print("Song folder created or already exists: " + path)
+			print("Song folder created or already exists: " + song_path)
 		else:
-			print("Song folder not created: " + path + " | error: " + error)
-			global_error = "Error: " + error + "\nException: " + path
+			print("Song folder not created: " + song_path + " | error: " + error)
+			global_error = "Error: " + error + "\nException: " + song_path
 			get_tree().change_scene_to_file("res://scenes/game_crash.tscn")
 			

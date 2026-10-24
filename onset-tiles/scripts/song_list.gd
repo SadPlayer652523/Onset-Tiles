@@ -49,8 +49,13 @@ func load_song_names():
 			if error == OK and json.data is Dictionary:
 				var settings: Dictionary = json.data
 				var button = chart_button_scene.instantiate()
-				button.text = str(settings.get("title", folder_name))
+				button.title = str(settings.get("title", folder_name))
+				button.artist = str(settings.get("artist", "Unknown"))
+				button.bpm = settings.get("bpm", -1)
 				button.chart_path = full_path
+				var cover_file_path = full_path.path_join("cover.png")
+				if FileAccess.file_exists(cover_file_path):
+					button.cover_texture = load(cover_file_path)
 				button.play.connect(transition_to_play_area)
 				song_list.add_child(button)
 				
@@ -124,7 +129,7 @@ func copy_songs(from_path: String, to_path: String) -> void:
 						print("Making target dir result for ", folder_to, " | Error code: ", mk_err)
 						copy_songs(folder_from, folder_to)
 				else:
-					if folder_name in ["settings.json", "lanes.lrc", "song.mp3"]:
+					if folder_name in ["settings.json", "lanes.lrc", "song.mp3", "cover.png"]:
 						var copy_err = DirAccess.copy_absolute(folder_from, folder_to)
 						print("Copying file ", folder_name, " | Error code: ", copy_err)
 			folder_name = dir.get_next()
@@ -147,7 +152,7 @@ func fix_content_android(path: String) -> String:
 	return path
 
 func has_required_files(path: String) -> bool:
-	var required_files = ["settings.json", "lanes.lrc", "song.mp3"]
+	var required_files = ["settings.json", "lanes.lrc", "song.mp3", "cover.png"]
 	for file in required_files:
 		if !FileAccess.file_exists(path.path_join(file)):
 			return false

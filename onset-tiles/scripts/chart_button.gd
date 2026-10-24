@@ -2,10 +2,36 @@ extends Button
 
 signal play
 
+@onready var cover: TextureRect = $Cover
+@onready var title_label: RichTextLabel = $"Title Label"
+@onready var artist_label: RichTextLabel = $"Artist Label"
+@onready var bpm_label: RichTextLabel = $"BPM Label"
+@onready var difficulty_label: RichTextLabel = $"Difficulty Label"
+
 var chart_path: String
 
+var title: String
+var bpm
+var difficulty: String
+var artist: String
+var cover_texture
+
 func _ready() -> void:
-	pass
+	if bpm != -1:
+		if bpm < 120:
+			difficulty = "Easy"
+		elif bpm <= 140:
+			difficulty = "Normal"
+		else:
+			difficulty = "Hard"
+	else:
+		difficulty = "Unknown"
+	bpm_label.text = str(int(bpm)) if bpm != -1 else "Unknown"
+	title_label.text = title
+	artist_label.text = "Artist: " + artist
+	difficulty_label.text = difficulty
+	if cover_texture:
+		cover.texture = cover_texture
 
 func _process(delta: float) -> void:
 	pass

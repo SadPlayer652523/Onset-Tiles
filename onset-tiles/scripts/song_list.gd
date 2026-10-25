@@ -16,6 +16,7 @@ func _ready() -> void:
 	import_dialog.use_native_dialog = true
 	import_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	Global.score = 0
+	Global.tiles_missed = 0
 	load_song_names()
 
 func _process(delta: float) -> void:
@@ -48,10 +49,13 @@ func load_song_names():
 			
 			if error == OK and json.data is Dictionary:
 				var settings: Dictionary = json.data
+				var song_data: Dictionary = settings["song_data"]
+				var user_data: Dictionary = settings["user_data"]
 				var button = chart_button_scene.instantiate()
-				button.title = str(settings.get("title", folder_name))
-				button.artist = str(settings.get("artist", "Unknown"))
-				button.bpm = settings.get("bpm", -1)
+				button.title = str(song_data.get("title", folder_name))
+				button.artist = str(song_data.get("artist", "Unknown"))
+				button.bpm = song_data.get("bpm", -1)
+				button.high_score = user_data.get("score", 0)
 				button.chart_path = full_path
 				var cover_file_path = full_path.path_join("cover.png")
 				if FileAccess.file_exists(cover_file_path):

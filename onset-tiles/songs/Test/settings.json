@@ -1,6 +1,11 @@
 {
-	"title": "Test Track",
-	"artist": "SadPlayer652523",
-	"difficulty": "Normal",
-	"bpm": 108
+	"song_data": {
+		"title": "Test Track",
+		"artist": "SadPlayer652523",
+		"difficulty": "Normal",
+		"bpm": 108
+	},
+	"user_data": {
+		"score": 0
+	}
 }

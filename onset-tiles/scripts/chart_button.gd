@@ -6,6 +6,7 @@ signal play
 @onready var title_label: RichTextLabel = $"Title Label"
 @onready var artist_label: RichTextLabel = $"Artist Label"
 @onready var bpm_label: RichTextLabel = $"BPM Label"
+@onready var score_label: RichTextLabel = $"Score Label"
 @onready var difficulty_label: RichTextLabel = $"Difficulty Label"
 
 var chart_path: String
@@ -15,6 +16,7 @@ var bpm
 var difficulty: String
 var artist: String
 var cover_texture
+var high_score: int
 
 func _ready() -> void:
 	if bpm != -1:
@@ -30,6 +32,7 @@ func _ready() -> void:
 	title_label.text = title
 	artist_label.text = "Artist: " + artist
 	difficulty_label.text = difficulty
+	score_label.text = str(high_score)
 	if cover_texture:
 		cover.texture = cover_texture
 

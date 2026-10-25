@@ -8,7 +8,10 @@ var song_settings: Dictionary
 var current_song_directory: String
 var global_error: String
 var score: int
+var tiles_missed: int
 var paused: bool
+var failed: bool
+var duration
 
 func _ready() -> void:
 	create_song_folder()

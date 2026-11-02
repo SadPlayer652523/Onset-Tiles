@@ -69,3 +69,8 @@ You should select a folder that has all song folders. Inside those sub-folders s
 # iOS Support
 
 I don't know how to make iOS games. Don't expect an iOS release, I don't even have a single Apple device.
+
+# Credits & Copyright
+
+Demo Song: "Screen Saver" by Kevin MacLeod ([incompetech.com](https://incompetech.com))
+Licensed under [Creative Commons: By Attribution 4.0](http://creativecommons.org/licenses/by/4.0/)

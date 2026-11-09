@@ -15,6 +15,10 @@ An open-source Magic Tiles-style game.
 - Possibly auto-generated levels
 - Possibly a better file structure
 
+# How to Install & Run
+
+Download the latest release and install that. You might need to Allow Install from Unknown Sources.
+
 # Making levels
 
 ## File Structure
